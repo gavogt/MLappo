@@ -2,6 +2,7 @@
 using Microsoft.ML.Legacy.Data;
 using Microsoft.ML.Legacy.Trainers;
 using Microsoft.ML.Legacy.Transforms;
+using Microsoft.ML.Transforms;
 
 namespace Malappo
 {
@@ -20,7 +21,7 @@ namespace Malappo
             pipeline.Add(new Dictionarizer("UserID"));
 
             // Put features into a vector
-            pipeline.Add(new ColumnConcatenator("UserId", "ProductID", "Gender", "Age", "Occupation", "CityCategory", "StayInCurrentCityYears", "Martial", "ProductCategory1", "ProductCategory2", "ProductCategory3", "Purchase"));
+            pipeline.Add(new ColumnConcatenator("Features", "UserID", "ProductID", "Gender", "Age", "Occupation", "CityCategory", "StayInCurrentCityYears", "MaritalStatus", "ProductCategory1", "ProductCategory2", "ProductCategory3", "Purchase"));
 
             // Add the learning algorithm to the pipeline
             // Ask which person may buy what
@@ -38,14 +39,14 @@ namespace Malappo
                 ProductID = "P00190042",
                 Gender = "M",
                 Age = "54",
-                Occupation = 10,
+                Occupation = "10",
                 CityCategory = "C",
                 StayInCurrentCityYears = "4",
-                MaritalStatus = 0,
-                ProductCategory1 = 3,
-                ProductCategory2 = 4,
-                ProductCategory3 = 5,
-                Purchase = 10839
+                MaritalStatus = "0",
+                ProductCategory1 = "3",
+                ProductCategory2 = "4",
+                ProductCategory3 = "5",
+                Purchase = "10839"
 
             });
 

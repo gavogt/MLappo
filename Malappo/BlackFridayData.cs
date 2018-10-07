@@ -18,7 +18,7 @@ namespace Malappo
         public string Age;
 
         [Column("4")]
-        public int Occupation;
+        public string Occupation;
 
         [Column("5")]
         public string CityCategory;
@@ -27,19 +27,19 @@ namespace Malappo
         public string StayInCurrentCityYears;
 
         [Column("7")]
-        public int MaritalStatus;
+        public string MaritalStatus;
 
         [Column("8")]
-        public int ProductCategory1;
+        public string ProductCategory1;
 
         [Column("9")]
-        public int ProductCategory2;
+        public string ProductCategory2;
 
         [Column("10")]
-        public int ProductCategory3;
+        public string ProductCategory3;
 
         [Column("11")]
-        public int Purchase;
+        public string Purchase;
 
     }
 }
