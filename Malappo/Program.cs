@@ -36,22 +36,23 @@ namespace Malappo
             // Make a prediction
             var prediction = model.Predict(new BlackFridayData()
             {
-                ProductID = "P00190042",
+                UserID = "1003393",
+                ProductID = 0113242,
                 Gender = "M",
-                Age = "54",
-                Occupation = "10",
+                Age = "36-45",
+                Occupation = "12",
                 CityCategory = "C",
-                StayInCurrentCityYears = "4",
-                MaritalStatus = "0",
-                ProductCategory1 = "3",
-                ProductCategory2 = "4",
-                ProductCategory3 = "5",
-                Purchase = "10839"
+                StayInCurrentCityYears = "3",
+                MaritalStatus = "1",
+                ProductCategory1 = "1",
+                ProductCategory2 = "6",
+                ProductCategory3 = "8",
+                Purchase = default
 
             });
 
             // Cw
-            System.Console.WriteLine($"User ID is: {prediction.PredictedLabels}");
+            System.Console.WriteLine($"User ID is: {prediction.Purchase}");
 
         }
     }

@@ -9,7 +9,7 @@ namespace Malappo
         public string UserID;
 
         [Column("1")]
-        public string ProductID;
+        public int ProductID;
 
         [Column("2")]
         public string Gender;

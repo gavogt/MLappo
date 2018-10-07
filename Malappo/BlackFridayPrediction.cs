@@ -4,8 +4,8 @@ namespace Malappo
 {
     class BlackFridayPrediction
     {
-        [ColumnName("PredictedLabel")]
-        public string PredictedLabels;
+        [ColumnName("Purchase")]
+        public string Purchase;
 
     }
 }
