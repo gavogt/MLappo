@@ -13,7 +13,7 @@ namespace Malappo
             var pipeline = new LearningPipeline();
 
             // Set the path to the file
-            string data = @"C:\MechineLearningPractice\BlackFriday.txt";
+            string data = @"C:\MachineLearningPractice\BlackFriday.csv";
             pipeline.Add(new TextLoader(data).CreateFrom<BlackFridayData>(separator: ','));
 
             // Transform data
