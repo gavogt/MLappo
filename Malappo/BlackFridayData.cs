@@ -40,7 +40,7 @@ namespace Malappo
 
         [Column("11")]
         [ColumnName("Label")]
-        public string Label;
+        public string Purchase;
 
     }
 }

@@ -35,18 +35,17 @@ namespace Malappo
             // Make a prediction
             var prediction = model.Predict(new BlackFridayData()
             {
-                UserID = 1003393f,
-                ProductID = 100182642f,
+                UserID = 1004736f,
+                ProductID = 100157542f,
                 Gender = 1f,
-                Age = 36345f,
-                Occupation = 14f,
+                Age = 18325f,
+                Occupation = 20f,
                 CityCategory = 0f,
                 StayInCurrentCityYears = 1f,
                 MaritalStatus = 1f,
                 ProductCategory1 = 1f,
-                ProductCategory2 = 6f,
-                ProductCategory3 = 8f,
-
+                ProductCategory2 = 15f,
+                ProductCategory3 = 16f,
 
             });
 
