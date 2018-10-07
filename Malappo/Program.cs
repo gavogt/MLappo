@@ -18,7 +18,7 @@ namespace Malappo
             pipeline.Add(new TextLoader(data).CreateFrom<BlackFridayData>(separator: ','));
 
             // Transform data
-            pipeline.Add(new Dictionarizer("UserID"));
+            pipeline.Add(new Dictionarizer("Purchase"));
 
             // Put features into a vector
             pipeline.Add(new ColumnConcatenator("Features", "UserID", "ProductID", "Gender", "Age", "Occupation", "CityCategory", "StayInCurrentCityYears", "MaritalStatus", "ProductCategory1", "ProductCategory2", "ProductCategory3", "Purchase"));
@@ -28,7 +28,7 @@ namespace Malappo
             pipeline.Add(new StochasticDualCoordinateAscentClassifier());
 
             // Convert label to original text
-            pipeline.Add(new PredictedLabelColumnOriginalValueConverter() { PredictedLabelColumn = "PredictedLabel" });
+            pipeline.Add(new PredictedLabelColumnOriginalValueConverter() { PredictedLabelColumn = "PredictedPurchase" });
 
             // Train the model based on the data set
             var model = pipeline.Train<BlackFridayData, BlackFridayPrediction>();
@@ -37,7 +37,7 @@ namespace Malappo
             var prediction = model.Predict(new BlackFridayData()
             {
                 UserID = "1003393",
-                ProductID = 0113242,
+                ProductID = "P00113242",
                 Gender = "M",
                 Age = "36-45",
                 Occupation = "12",
@@ -47,12 +47,12 @@ namespace Malappo
                 ProductCategory1 = "1",
                 ProductCategory2 = "6",
                 ProductCategory3 = "8",
-                Purchase = default
+                Purchase = "0"
 
             });
 
             // Cw
-            System.Console.WriteLine($"User ID is: {prediction.Purchase}");
+            System.Console.WriteLine($"User ID is: {prediction.PredictedPurchases}");
 
         }
     }

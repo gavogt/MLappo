@@ -9,7 +9,7 @@ namespace Malappo
         public string UserID;
 
         [Column("1")]
-        public int ProductID;
+        public string ProductID;
 
         [Column("2")]
         public string Gender;
@@ -39,6 +39,7 @@ namespace Malappo
         public string ProductCategory3;
 
         [Column("11")]
+        [ColumnName("Purchase")]
         public string Purchase;
 
     }
