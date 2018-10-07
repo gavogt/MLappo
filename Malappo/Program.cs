@@ -47,7 +47,6 @@ namespace Malappo
                 ProductCategory1 = "1",
                 ProductCategory2 = "6",
                 ProductCategory3 = "8",
-                Purchase = default
 
             });
 
