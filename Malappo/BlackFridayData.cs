@@ -6,41 +6,41 @@ namespace Malappo
     {
         // Columns for the data
         [Column("0")]
-        public string UserID;
+        public float UserID;
 
         [Column("1")]
-        public string ProductID;
+        public float ProductID;
 
         [Column("2")]
-        public string Gender;
+        public float Gender;
 
         [Column("3")]
-        public string Age;
+        public float Age;
 
         [Column("4")]
-        public string Occupation;
+        public float Occupation;
 
         [Column("5")]
-        public string CityCategory;
+        public float CityCategory;
 
         [Column("6")]
-        public string StayInCurrentCityYears;
+        public float StayInCurrentCityYears;
 
         [Column("7")]
-        public string MaritalStatus;
+        public float MaritalStatus;
 
         [Column("8")]
-        public string ProductCategory1;
+        public float ProductCategory1;
 
         [Column("9")]
-        public string ProductCategory2;
+        public float ProductCategory2;
 
         [Column("10")]
-        public string ProductCategory3;
+        public float ProductCategory3;
 
         [Column("11")]
-        [ColumnName("Purchase")]
-        public string Purchase;
+        [ColumnName("Label")]
+        public string Label;
 
     }
 }
