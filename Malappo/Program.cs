@@ -47,12 +47,12 @@ namespace Malappo
                 ProductCategory1 = "1",
                 ProductCategory2 = "6",
                 ProductCategory3 = "8",
-                Purchase = "0"
+                Purchase = default
 
             });
 
             // Cw
-            System.Console.WriteLine($"User ID is: {prediction.PredictedPurchases}");
+            System.Console.WriteLine($"Purchase prediction is: {prediction.PredictedPurchases}");
 
         }
     }
