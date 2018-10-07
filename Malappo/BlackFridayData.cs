@@ -6,7 +6,7 @@ namespace Malappo
     {
         // Columns for the data
         [Column("0")]
-        public int UserID;
+        public string UserID;
 
         [Column("1")]
         public string ProductID;

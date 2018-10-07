@@ -1,5 +1,7 @@
 ﻿using Microsoft.ML.Legacy;
 using Microsoft.ML.Legacy.Data;
+using Microsoft.ML.Legacy.Trainers;
+using Microsoft.ML.Legacy.Transforms;
 
 namespace Malappo
 {
@@ -11,8 +13,44 @@ namespace Malappo
             var pipeline = new LearningPipeline();
 
             // Set the path to the file
-            string data = "BlackFriday.txt";
+            string data = @"C:\MechineLearningPractice\BlackFriday.txt";
             pipeline.Add(new TextLoader(data).CreateFrom<BlackFridayData>(separator: ','));
+
+            // Transform data
+            pipeline.Add(new Dictionarizer("UserID"));
+
+            // Put features into a vector
+            pipeline.Add(new ColumnConcatenator("UserId", "ProductID", "Gender", "Age", "Occupation", "CityCategory", "StayInCurrentCityYears", "Martial", "ProductCategory1", "ProductCategory2", "ProductCategory3", "Purchase"));
+
+            // Add the learning algorithm to the pipeline
+            // Ask which person may buy what
+            pipeline.Add(new StochasticDualCoordinateAscentClassifier());
+
+            // Convert label to original text
+            pipeline.Add(new PredictedLabelColumnOriginalValueConverter() { PredictedLabelColumn = "PredictedLabel" });
+
+            // Train the model based on the data set
+            var model = pipeline.Train<BlackFridayData, BlackFridayPrediction>();
+
+            // Make a prediction
+            var prediction = model.Predict(new BlackFridayData()
+            {
+                ProductID = "P00190042",
+                Gender = "M",
+                Age = "54",
+                Occupation = 10,
+                CityCategory = "C",
+                StayInCurrentCityYears = "4",
+                MaritalStatus = 0,
+                ProductCategory1 = 3,
+                ProductCategory2 = 4,
+                ProductCategory3 = 5,
+                Purchase = 10839
+
+            });
+
+            // Cw
+            System.Console.WriteLine($"User ID is: {prediction.PredictedLabels}");
 
         }
     }
